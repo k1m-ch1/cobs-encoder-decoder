@@ -1,8 +1,16 @@
 #include "COBS.h"
+#include <stdio.h>
 
 int main() {
-  uint8_t b[8] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07};
-  Frame frame = {.framePtr = b, .size = 8};
+  uint8_t b[256];
+  for (uint16_t i = 0; i < 254; i++) {
+    b[i] = i + 1;
+  }
+  Frame frame = {.framePtr = b, .size = 254};
+  printf("decoded frame: \n");
   printFrame(frame);
+  Frame encodedFrame = cobsEncode(frame);
+  printf("encoded frame: \n");
+  printFrame(encodedFrame);
   return 0;
 }
