@@ -1,15 +1,7 @@
-#include "COBS.h"
-#include <cstdlib>
+#include "cobs.h"
+#include <stdbool.h>
 #include <stdint.h>
-#include <stdio.h>
 #include <stdlib.h>
-
-void printFrame(Frame frame) {
-  for (uint32_t i = 0; i < frame.size; i++) {
-    printf("%02X ", frame.framePtr[i]);
-  }
-  printf("\n");
-}
 
 Frame cobsEncode(Frame decodedFrame) {
   // we'll actually malloc a frame and then put it in the frame and send it back
@@ -85,7 +77,7 @@ Frame cobsDecode(Frame encodedFrame) {
   // if we have one traversal left (because we need just one more traversal to
   // reach the delimiter), then that's good, otherwise, something went wrong
   if (traversals != 1) {
-    return {};
+    return (Frame){};
   }
   return decodedFrame;
 }

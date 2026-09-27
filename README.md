@@ -28,7 +28,33 @@ So it's like:
 
 So, we can safely initialize an upperbound of `n + (n / 254) + 1`
 
+# Usage
 
+So we can create a frame by initializing an array of bytes, and then specifying the amount of bytes. We can then encode it to get an encoded frame, which can be decoded to get a decoded frame.
 
-# Main interface design
+Initialize the frame as such:
 
+```c
+#include <stdint.h>
+
+uint8_t b[8] = {
+  0x00,
+  0x01,
+  0x02,
+  0x03,
+  0x04,
+  0x05,
+  0x06,
+  0x07
+}
+
+Frame frame = {
+  .framePtr = b;
+  .size = 8;
+}
+
+// encode the frame as such:
+Frame encodedFrame = cobsEncode(frame);
+
+Frame decodedFrame = cobsDecode(encodedFrame);
+```

@@ -1,0 +1,23 @@
+{
+    "name": "COBS",
+    "version": "1.0.0",
+    "description": "simple COBS encoder and decoder",
+    "keywords": [
+        "cobs",
+        "encoding",
+        "serial",
+        "framing"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/k1m-ch1/cobs-encoder-decoder"
+    },
+    "authors": [
+        {
+            "name": "k1mch1"
+        }
+    ],
+    "license": "MIT",
+    "frameworks": "*",
+    "platforms": "*"
+}
