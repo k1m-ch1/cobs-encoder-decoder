@@ -20,6 +20,5 @@ frame = Frame(
 
 encoded = cobs.cobsEncode(frame)
 print(encoded.size)
-print(bytes(encoded.framePtr[:encoded.size]))
-
+print(bytes(encoded.framePtr[:encoded.size]).hex(' '))
 
